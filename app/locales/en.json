@@ -215,6 +215,12 @@
     "afterMiniBreak_other": "after {{count}} Mini breaks",
     "resuming": "Resuming"
   },
+  "ios": {
+    "done": "Done",
+    "notificationsOff": "Notifications are turned off, so Stretchly can only remind you about breaks while it is open.",
+    "openSettings": "Open Settings",
+    "strictModeInfo": "On iPad, Strict mode hides the option to skip a break, but it cannot keep you from leaving Stretchly."
+  },
   "miniBreakIdeas": {
     "aaa": {
       "text": "Go grab a glass of water."

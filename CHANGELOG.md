@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Added
 - CLI commands to postpone, skip and finish the current break
+- native iPadOS app in `ios/`, sharing translations, break ideas, sounds and themes with the desktop app
 
 ### Fixed
 - fix snap startup crash

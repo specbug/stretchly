@@ -1,0 +1,6 @@
+Stretchly.xcodeproj/
+Stretchly/Generated/
+StretchlyCore/.build/
+StretchlyCore/.swiftpm/
+xcuserdata/
+DerivedData/
