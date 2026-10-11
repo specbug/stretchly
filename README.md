@@ -116,6 +116,10 @@ Read more [here](https://github.com/electron/electron/issues/17972). Depending o
 
 If you're on Wayland and you would like to be able to monitor idle time, you'll need to add your user to `input` group, with `sudo gpasswd --add $USER input` (depending on your distro) and logout/login to take an effect.
 
+### iPad
+
+A native iPadOS build lives in [`ios/`](ios/README.md). It shares translations, break ideas, sounds and themes with the desktop app. Because iPadOS does not allow apps to stay on screen over other apps, breaks arrive as notifications that open the break screen. See [`ios/README.md`](ios/README.md) for how to build it and how it differs from the desktop app.
+
 ### Running from source
 
 To run *Stretchly* from source you will need [Node.js](https://nodejs.org/), ideally the one specified in `package.json`. Clone the repo, run `npm install` and then simply run `npm start` to start *Stretchly*.
