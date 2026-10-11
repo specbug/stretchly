@@ -51,6 +51,15 @@ final class TranslatorTests: XCTestCase {
     XCTAssertEqual(translator.t("utils.remaining", ["count": "5 minutes"]), "5 minutes remaining")
   }
 
+  func testInterpolationIgnoresFormatHints() {
+    let translator = Translator(
+      language: "sk",
+      primary: .group(["minutes": .text("{{count, number}} minúty, {{ missing }}")]),
+      fallback: .group([:])
+    )
+    XCTAssertEqual(translator.t("minutes", ["count": "1.5"]), "1.5 minúty, {{ missing }}")
+  }
+
   func testDurationRoundsLikeHumanizeDuration() throws {
     let translator = try Translator(language: "en", primaryJSON: nil, fallbackJSON: english)
     XCTAssertEqual(translator.duration(18.4, units: [.hours, .minutes, .seconds]), "18 seconds")

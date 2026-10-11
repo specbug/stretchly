@@ -99,11 +99,16 @@ public struct Translator: Sendable {
 
   private func interpolate(_ text: String, _ values: [String: String]) -> String {
     guard text.contains("{{") else { return text }
-    var result = text
-    for (name, value) in values {
-      result = result.replacingOccurrences(of: "{{\(name)}}", with: value)
+    var result = ""
+    var rest = Substring(text)
+    while let open = rest.range(of: "{{"), let close = rest.range(of: "}}", range: open.upperBound..<rest.endIndex) {
+      result += rest[..<open.lowerBound]
+      let placeholder = rest[open.upperBound..<close.lowerBound]
+      let name = placeholder.split(separator: ",", maxSplits: 1).first?.trimmingCharacters(in: .whitespaces) ?? ""
+      result += values[name] ?? String(rest[open.lowerBound..<close.upperBound])
+      rest = rest[close.upperBound...]
     }
-    return result
+    return result + rest
   }
 }
 
